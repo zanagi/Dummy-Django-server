@@ -93,6 +93,10 @@ STATICFILES_DIRS = (
     './shorturl/static',
 )
 
+STATIC_ROOT = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # Site templates
 TEMPLATE_DIRS = (
     # django project files

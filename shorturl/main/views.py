@@ -67,7 +67,7 @@ class Redirect(shorturl.views.BaseView):
             long_url = LongURL.objects.get(id=url_id)
         except LongURL.DoesNotExist:
             raise http.Http404
-
+        
         return redirect(long_url.long_url)
 
     def get_id(self, code):
