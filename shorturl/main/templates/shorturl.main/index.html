@@ -1,0 +1,26 @@
+{% extends "site.html" %}
+{% load static %}
+
+{% block title %}URL Shortening Service{% endblock %}
+{% block head %}
+{% endblock %}
+
+{% block container %}
+    <div>
+        <h1>
+            URL Shortener
+        </h1>
+		<form action="javascript:void(0);" onSubmit="post();">{% csrf_token %}
+			Long URL:<br>
+			<input type="text" name="url" id="url">
+			<input type="submit" value="Submit">
+		</form>
+		<p>Newest link</p>
+		<a href="" id="newlink"></a>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+	<script type="text/javascript" src="{% static 'js/submit.js' %}"></script>
+{% endblock %}

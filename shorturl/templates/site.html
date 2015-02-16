@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+    {% block body %}
+        <!-- Content -->
+        <div class="container">
+        {% block container %}
+
+        {% endblock %}
+        </div>
+    {% endblock %}
+        
+        <!-- Scripts -->
+        <script type="text/javascript" src="{% static 'jquery/jquery-2.1.3.min.js' %}"></script>
+
+        {% block script %}{% endblock %}
+    </body>
+</html>
