@@ -1,4 +1,4 @@
-var url = "http://localhost:8000";
+var url = window.location.href;
 
 /* Setup AJAX to handle CORS with Django */
 $(document).ready(function() {
