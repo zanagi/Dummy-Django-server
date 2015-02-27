@@ -24,20 +24,22 @@ class SensorData(django.views.generic.View):
             manager.save()
 
         delta = current_time - manager.time
+        print("Delta: " + str(delta.seconds))
         overtime = delta.seconds >= 280
         # little less than 5 minutes
         if overtime:
-            manager.objects.filter(pk=1).update(time=current_time)
+            manager.time=current_time
             manager.save()
         for s in Sensor.objects.order_by('-sensor'):
             #Update sensor value
             if overtime:
                 old_value = s.value
                 coeff = (10 - randint(0,20)) / 100.0
+                print("coeff: " + str(coeff))
                 new_value = old_value * (1 - coeff)
-                
+                print("new: " + str(new_value))
                 if old_value * new_value >= 0:
-                    s.update(value=new_value)
+                    s.value = new_value;
                     s.save()
                     
             # optimize string length
