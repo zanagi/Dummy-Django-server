@@ -12,7 +12,7 @@ class SensorData(django.views.generic.View):
 
     def get(self, request):
         sensors = {}
-        for s in Sensor.objects.all().order_by('-sensor'):
+        for s in Sensor.objects.order_by('-sensor'):
             sensors[s.sensor] = str(s.value)
         return JsonResponse(sensors)
 
