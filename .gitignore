@@ -1,2 +1,5 @@
 *.pyc
 *.sqlite3
+shorturl/main/migrations/0001_initial.py
+shorturl/sensors/migrations/0001_initial.py
+shorturl/sensors/migrations/0002_auto_20150227_1807.py
