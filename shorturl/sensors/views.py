@@ -24,9 +24,7 @@ class SensorData(django.views.generic.View):
             manager.save()
 
         delta = current_time - manager.time
-        print(delta.seconds)
         overtime = delta.seconds >= 280
-        print("Overtime: " + str(overtime))
         # little less than 5 minutes
         if overtime:
             manager.update(time=current_time)
@@ -37,10 +35,7 @@ class SensorData(django.views.generic.View):
                 old_value = s.value
                 coeff = (10 - randint(0,20)) / 100.0
                 new_value = old_value * (1 - coeff)
-
-                print("coeff: " + coeff)
-                print("new: " + new_value)
-                print("mult: " + old_value * new_value)
+                
                 if old_value * new_value >= 0:
                     s.update(value=new_value)
                     s.save()
