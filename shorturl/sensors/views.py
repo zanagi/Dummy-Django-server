@@ -27,7 +27,7 @@ class SensorData(django.views.generic.View):
         overtime = delta.seconds >= 280
         # little less than 5 minutes
         if overtime:
-            manager.update(time=current_time)
+            manager.objects.filter(pk=1).update(time=current_time)
             manager.save()
         for s in Sensor.objects.order_by('-sensor'):
             #Update sensor value
