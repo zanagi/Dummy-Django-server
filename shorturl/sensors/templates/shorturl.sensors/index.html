@@ -1,0 +1,31 @@
+{% extends "site.html" %}
+{% load static %}
+
+{% block title %}Fake Sensor Server{% endblock %}
+{% block head %}
+{% endblock %}
+
+{% block container %}
+    <div>
+        <h1>
+            Sensor Data Adder
+        </h1>
+		<h3> Add/Update sensors by specifying sensor name and value</h3>
+		<h4> If name already exists in the database, the value will be updated</h4>
+		<form action="javascript:void(0);" onSubmit="post();">{% csrf_token %}
+			Sensor Name/ID:<br>
+			<input type="text" name="sensor" id="sensor">
+			Sensor value:<br>
+			<input type="text" name="value" id="value">
+			<input type="submit" value="Submit">
+		</form>
+		<div>
+			<pre id="info" style="border: 1px solid black">Info:</pre>
+		</div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+	<script type="text/javascript" src="{% static 'js/sensor.js' %}"></script>
+{% endblock %}
